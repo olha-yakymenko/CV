@@ -1,0 +1,19 @@
+{
+  "name": "lab06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "zad01.js",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/zad01.js, src/zad02.js, src/zad03.js"
+  },
+  "keywords": [],
+  "author": "olha",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

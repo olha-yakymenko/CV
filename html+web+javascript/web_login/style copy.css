@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(201, 239, 195);
+  background-size: cover;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 99;
+  height: auto; /* Автоматическая высота */
+  height: 150px;
+}
+
+.logo {
+  padding: 0;
+  max-height: 150px; /* Максимальная высота логотипа */
+  width: auto; /* Автоматическая ширина */
+  align-self: center;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 20px;
+  height: 100px;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background-color: #fff;
+  color: #162938;
+}
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  height: auto; /* Автоматическая высота */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.wrapper.active-popup {
+  transform: scale(1);
+}
+
+.wrapper.active {
+  height: 480px; /* Уменьшенная высота формы */
+}
+
+.wrapper .form-box {
+  width: 100%;
+  padding: 15px; /* Уменьшение отступов */
+}
+
+.wrapper .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+  width: 90%; /* Уменьшение ширины формы регистрации */
+}
+
+.wrapper.active .form-box.register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background: #162938;
+  font-size: 1.5em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box h2 {
+  font-size: 1.5em;
+  color: #162938;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #162938;
+  margin: 20px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 0.9em;
+  color: #162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 30px 0 5px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+
+.remember-forgot {
+  font-size: 0.8em;
+  color: #162938;
+  font-weight: 500;
+  margin: -15px 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #162938;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #162938;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  background: #162938;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.login-register {
+  font-size: 0.8em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 10px 0 10px;
+}
+
+.login-register p a {
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+  header {
+      padding: 10px 15px;
+  }
+
+  .logo {
+      max-height: 200px;
+      margin-left: 100px;
+      margin-top: 0px;
+      padding-top: 0; /* Уменьшенная высота для мобильных устройств */
+  }
+
+  .navigation a {
+      font-size: 0.9em;
+      margin-left: 15px;
+  }
+
+  .navigation .btnLogin-popup {
+      width: 90px;
+      height: 35px;
+      font-size: 0.9em;
+      margin-left: 15px;
+  }
+
+  .wrapper {
+      width: 90%;
+      height: auto;
+  }
+
+  .wrapper .form-box {
+      padding: 15px;
+  }
+
+  .form-box h2 {
+      font-size: 1.3em;
+  }
+
+  .input-box {
+      height: 40px;
+  }
+
+  .input-box label {
+      font-size: 0.8em;
+  }
+
+  .input-box input {
+      font-size: 0.8em;
+  }
+
+  .remember-forgot {
+      font-size: 0.7em;
+  }
+
+  .btn {
+      height: 35px;
+      font-size: 0.8em;
+  }
+
+  .login-register {
+      font-size: 0.7em;
+  }
+  .wrapper .form-box.register{
+    padding: 10px;
+  }
+  .wrapper.active-popup{
+    height: 350px;
+    margin-top: 40px;
+  }
+}
